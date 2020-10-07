@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>주식갬성</title>
     <meta name="title" content="주식종목 감성분석">
     <meta name="subject" content="오늘 주식 기사를 보고 AI가 종목별 감성분석한 결과 보기!">
@@ -16,15 +18,17 @@
     <meta property="og:url" content="https://aistocknp.netlify.app" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="주식종목 감성분석" />
-    <meta property="og:description" content="주기적으로 AI가 주식 기사를 읽고 기사에 나온 종목에 대한 기사 내용을 감성분석한 결과를 볼 수 있습니다. 기사 내용을 AI가 분석한 결과 이므로 '카더라~' 정도로 참고만 하시기 바랍니다."
-    />
-    <meta property="og:image" content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fc0eq42%2FbtqCQpiFhFn%2F8KPaOP9q8PXpJFRL7if55K%2Fimg.jpg" />
+    <meta property="og:description"
+        content="주기적으로 AI가 주식 기사를 읽고 기사에 나온 종목에 대한 기사 내용을 감성분석한 결과를 볼 수 있습니다. 기사 내용을 AI가 분석한 결과 이므로 '카더라~' 정도로 참고만 하시기 바랍니다." />
+    <meta property="og:image"
+        content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fc0eq42%2FbtqCQpiFhFn%2F8KPaOP9q8PXpJFRL7if55K%2Fimg.jpg" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e64b3727e862b06"></script>
-	</head>
-	<body>
-		<nav class="p-3 container navbar navbar-expand-lg navbar-light">
+</head>
+
+<body>
+    <nav class="p-3 container navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="https://aistocknp.netlify.app/">주식갬성</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -35,11 +39,11 @@
             </ul>
         </div>
     </nav>
-	<section class="section">
+    <section class="section">
         <h1 class="title">AI가 오늘 주식 기사를 보고</h1>
         <h2 class="subtitle">종목별 감성분석한 결과 보기!</h2>
     </section>
-	<h3 class="pb-2 d-flex justify-content-center">AI의 감성을 선택하세요</h3>
+    <h3 class="pb-2 d-flex justify-content-center">AI의 감성을 선택하세요</h3>
     <section class="d-flex justify-content-center">
         <h3 class="d-flex align-items-center pr-3">긍정</h3>
         <div>
@@ -52,8 +56,8 @@
         </div>
         <h3 class="d-flex align-items-center pl-3">부정</h3>
     </section>
-	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">		</script>
-	<div class="mt-3 container file-upload">
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">		</script>
+    <div class="mt-3 container file-upload">
         <div class="image-upload-wrap">
             <input class="file-upload-input" type='button' onclick="readURL();" />
             <div class="drag-text">
@@ -62,7 +66,7 @@
             </div>
         </div>
         <div class="file-upload-content">
-            
+
             <div id="loading" class="animated bounce">
                 <div class="spinner-border" role="status">
                     <span class="sr-only">Loading...</span>
@@ -71,13 +75,13 @@
             </div>
             <p class="result-message"></p>
             <div id="label-container" class="d-flex flex-column justify-content-around"></div>
-            
-			<div id="blank">
-				<p> 
-				</p>
-				<p> 재미삼아 참고로 봐 주시기 바랍니다.
-				</p>
-			</div>
+
+            <div id="blank">
+                <p>
+                </p>
+                <p> 재미삼아 참고로 봐 주시기 바랍니다.
+                </p>
+            </div>
             <div class="pt-3 image-title-wrap">
                 <button type="button p-2" class="try-again-btn" onclick="window.location.reload();">
                     <span class="try-again-text">다른 감성 결과는?</span>
@@ -85,154 +89,147 @@
             </div>
         </div>
     </div>
-	<footer class="footer pt-5 container d-flex justify-content-center">
+    <footer class="footer pt-5 container d-flex justify-content-center">
         <div>
             <p>&copy; Congkey's 2020. All Rights Reserved. </p>
         </div>
     </footer>
-	<script>
-				
+    <script>
+
         function readURL() {
-			$('.image-upload-wrap').hide();
+            $('.image-upload-wrap').hide();
             $('#loading').show();
-			$('.file-upload-content').show();
-			init().then(function() {
-                    console.log("hello");
-					setTimeout(() => { $('#loading').hide(); predict();}, 2000);
-					                    
-                });
+            $('.file-upload-content').show();
+            setTimeout(() => { $('#loading').hide();}, 2000);
+            init().then(function () {
+                //console.log("hello");
+                //predict();
+                //$('#loading').hide();
+                //setTimeout(() => { $('#loading').hide(); predict();}, 2000);                  
+            });
         };
-		
-		let today = new Date();   
-		let year = today.getFullYear(); // 년도
-		let month = today.getMonth() + 1;  // 월
-		let date = today.getDate();  // 날짜
-		let hours = today.getHours(); // 시
-		let minutes = today.getMinutes();  // 분
-		
-		let URL;
+
+        let today = new Date();
+        let year = today.getFullYear(); // 년도
+        let month = today.getMonth() + 1;  // 월
+        let date = today.getDate();  // 날짜
+        let hours = today.getHours(); // 시
+        let minutes = today.getMinutes();  // 분
+
+        let URL;
         const urlPositive = "https://interface-dot-daelim-itb-deva.appspot.com/stockpn?pn=P";
         const urlNegative = "https://interface-dot-daelim-itb-deva.appspot.com/stockpn?pn=N";
-		
-		let labelContainer, maxPredictions;
-		var jsonData;
-		
-		maxPredictions = 0
-		async function init() {
-			
-			if (document.getElementById("gender").checked) {
+
+        let labelContainer, maxPredictions;
+        let jsonData;
+
+        maxPredictions = 0
+        async function init() {
+
+            if (document.getElementById("gender").checked) {
                 URL = urlNegative;
             } else {
                 URL = urlPositive;
             }
-			
-			
-			var data = $.ajax({
-					   dataType: "json",
-					   url: URL
-					  }).done(function( data ) {
-						//alert(JSON.stringify(data));
-						for(key in data) {
-							//console.log(data[key].length);
-							maxPredictions = data[key].length;
-						}
-						jsonData = data[key];
-				  	  });	
-		};
-		
-		async function predict() {
-			
-			console.log(jsonData);
-			labelContainer = document.getElementById("label-container");
-			labelContainer.style.visibility = "initial";
-						
-			for (let i = 0; i < maxPredictions; i++) {
-                var element = document.createElement("div")
-                element.classList.add("d-flex");
-                labelContainer.appendChild(element);
-            }
-			
-			tmp_className = "dog"
-			resultTitle = year+"년"+month+"월"+date+"일 " + hours+"시"+minutes+"분"
-			var clPN;
-			
-			if (document.getElementById("gender").checked) {
-                clPN = "부정";
-            } else {
-                clPN = "긍정";
-            }
-			
-			resultExplain = "AI가 기사를 보고 '"+clPN+"'으로 판단 한 종목 중에 감성지수 상위 "+maxPredictions+"개의 종목 입니다."
-			
-			resultCeleb = " "
-			var title = "<div class='" + tmp_className + "-animal-title'>" + resultTitle + "</div>"
-            var explain = "<div class='animal-explain pt-2'>" + resultExplain + "</div>"
-            var celeb = "<div class='" + tmp_className + "-animal-celeb pt-2 pb-2'>" + resultCeleb + "</div>"
-            $('.result-message').html(title + explain + celeb);
-			$('.result-message').show();
-			
-							  
-			console.log(jsonData[0].name);
-				
-			
-            var barWidth;
-			var labelTitle;
-			for (let i = 0; i < maxPredictions; i++) {
-				switch (i) {
-                    case 0:
-						tmp_className = "dog"
-                        labelTitle = jsonData[i].name + "("+jsonData[i].code+")"
-						barWidth = jsonData[i].ratio
-                        break;
-                    case 1:
-						tmp_className = "cat"
-                        labelTitle = jsonData[i].name + "("+jsonData[i].code+")"
-						barWidth = jsonData[i].ratio
-                        break;
-                    case 2:
-						tmp_className = "rabbit"
-                        labelTitle = jsonData[i].name + "("+jsonData[i].code+")"
-						barWidth = jsonData[i].ratio
-                        break;
-                    case 3:
-						tmp_className = "dinosaur"
-                        labelTitle = jsonData[i].name + "("+jsonData[i].code+")"
-						barWidth = jsonData[i].ratio
-                        break;
-                    case 4:
-						tmp_className = "bear"
-                        labelTitle = jsonData[i].name + "("+jsonData[i].code+")"
-						barWidth = jsonData[i].ratio
-                        break;
-                    default:
-						tmp_className = "알수없음"
-                        labelTitle = "알수없음"
-						barWidth = 0
+
+
+            var data = $.ajax({
+                dataType: "json",
+                url: URL
+            }).done(function (data) {
+                //alert(JSON.stringify(data));
+                for (key in data) {
+                    //console.log(data[key].length);
+                    maxPredictions = data[key].length;
                 }
-				
-				var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
-				var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%</span></div></div>"
-				labelContainer.childNodes[i].innerHTML = label + bar;
-			}
-									
-		};
-		
-		function changeChk() {
-			if (maxPredictions > 0) {
-				$('.image-upload-wrap').show();
-				$('#loading').hide();
-				$('.file-upload-content').hide();
-				$('.result-message').hide();
-				labelContainer.style.visibility = "hidden";
-			}
-			
-			if (document.getElementById("gender").checked) {
+                jsonData = data[key];
+
+                //console.log(jsonData);
+                labelContainer = document.getElementById("label-container");
+                labelContainer.style.visibility = "initial";
+
+                for (let i = 0; i < maxPredictions; i++) {
+                    var element = document.createElement("div")
+                    element.classList.add("d-flex");
+                    labelContainer.appendChild(element);
+                }
+
+                tmp_className = "dog"
+                resultTitle = year + "년" + month + "월" + date + "일 " + hours + "시" + minutes + "분"
+                var clPN;
+
+                if (document.getElementById("gender").checked) {
+                    clPN = "부정";
+                } else {
+                    clPN = "긍정";
+                }
+
+                resultExplain = "AI가 기사를 보고 '" + clPN + "'으로 판단 한 종목 중에 감성지수 상위 " + maxPredictions + "개의 종목 입니다."
+
+                resultCeleb = " "
+                var title = "<div class='" + tmp_className + "-animal-title'>" + resultTitle + "</div>"
+                var explain = "<div class='animal-explain pt-2'>" + resultExplain + "</div>"
+                var celeb = "<div class='" + tmp_className + "-animal-celeb pt-2 pb-2'>" + resultCeleb + "</div>"
+                $('.result-message').html(title + explain + celeb);
+                $('.result-message').show();
+
+
+                //console.log(jsonData[0].name);
+
+
+                var barWidth;
+                var labelTitle;
+                for (let i = 0; i < maxPredictions; i++) {
+
+                    labelTitle = jsonData[i].name.substring(0, 5) + "(" + jsonData[i].code + ")"
+                    barWidth = jsonData[i].ratio
+
+                    switch (i) {
+                        case 0:
+                            tmp_className = "dog"
+                            break;
+                        case 1:
+                            tmp_className = "cat"
+                            break;
+                        case 2:
+                            tmp_className = "rabbit"
+                            break;
+                        case 3:
+                            tmp_className = "dinosaur"
+                            break;
+                        case 4:
+                            tmp_className = "bear"
+                            break;
+                        default:
+                            tmp_className = "알수없음"
+                            labelTitle = "알수없음"
+                            barWidth = 0
+                    }
+
+                    var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+                    var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%</span></div></div>"
+                    labelContainer.childNodes[i].innerHTML = label + bar;
+                }
+            });
+        };
+
+        function changeChk() {
+            if (maxPredictions > 0) {
+                $('.image-upload-wrap').show();
+                $('#loading').hide();
+                $('.file-upload-content').hide();
+                $('.result-message').hide();
+                labelContainer.style.visibility = "hidden";
+            }
+
+            if (document.getElementById("gender").checked) {
                 document.getElementById("icon").src = "img/frown-thin.png";
             } else {
                 document.getElementById("icon").src = "img/smiley-thin.png";
             }
-		};
-		
+        };
+
     </script>
-	</body>
+</body>
+
 </html>
