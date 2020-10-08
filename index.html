@@ -22,9 +22,8 @@
         content="주기적으로 AI가 주식 기사를 읽고 기사에 나온 종목에 대한 기사 내용을 감성분석한 결과를 볼 수 있습니다. 기사 내용을 AI가 분석한 결과 이므로 '카더라~' 정도로 참고만 하시기 바랍니다." />
     <meta property="og:image"
         content="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2Fc0eq42%2FbtqCQpiFhFn%2F8KPaOP9q8PXpJFRL7if55K%2Fimg.jpg" />
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e64b3727e862b06"></script>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -82,7 +81,7 @@
                 <p> 재미삼아 참고로 봐 주시기 바랍니다.
                 </p>
             </div>
-            <div class="pt-3 image-title-wrap">
+            <div id="reload" class="pt-3 image-title-wrap">
                 <button type="button p-2" class="try-again-btn" onclick="window.location.reload();">
                     <span class="try-again-text">다른 감성 결과는?</span>
                 </button>
@@ -100,6 +99,7 @@
             $('.image-upload-wrap').hide();
             $('#loading').show();
             $('.file-upload-content').show();
+            $('#reload').hide();
             setTimeout(() => { $('#loading').hide();}, 2000);
             init().then(function () {
                 //console.log("hello");
@@ -208,6 +208,8 @@
                     var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
                     var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%</span></div></div>"
                     labelContainer.childNodes[i].innerHTML = label + bar;
+
+                    $('#reload').show();
                 }
             });
         };
