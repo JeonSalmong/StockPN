@@ -153,7 +153,10 @@
 
                 //console.log(jsonData);
                 labelContainer = document.getElementById("label-container");
-                labelContainer.style.visibility = "initial";
+                
+                while ( labelContainer.hasChildNodes() ) { labelContainer.removeChild( labelContainer.firstChild ); }
+
+                labelContainer.style.visibility = "visible";
 
                 for (let i = 0; i < maxPredictions; i++) {
                     var element = document.createElement("div")
@@ -221,9 +224,9 @@
                     var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
                     var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%</span></div></div>"
                     labelContainer.childNodes[i].innerHTML = label + bar;
-
                     //$('#reload').show();
                 }
+                console.log(labelContainer.childElementCount)
             });
         };
 
