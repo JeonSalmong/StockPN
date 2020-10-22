@@ -78,7 +78,7 @@
             <div id="blank">
                 <p>
                 </p>
-                <p> 재미삼아 참고로 봐 주시기 바랍니다.
+                <p> 
                 </p>
             </div>
             <div id="reload" class="pt-3 image-title-wrap">
@@ -108,7 +108,7 @@
             $('#loading').show();
             $('.file-upload-content').show();
             $('#reload').hide();
-            setTimeout(() => { $('#loading').hide();}, 2000);
+            //setTimeout(() => { $('#loading').hide();}, 2000);
             init().then(function () {
                 //console.log("hello");
                 //predict();
@@ -221,6 +221,7 @@
                             barWidth = 0
                     }
 
+                    $('#loading').hide();
                     var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
                     var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%</span></div></div>"
                     labelContainer.childNodes[i].innerHTML = label + bar;
