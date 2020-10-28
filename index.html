@@ -105,14 +105,12 @@
     <script>
 
         function readURL() {
-            alert('1');
             $('.image-upload-wrap').hide();
             $('#loading').show();
             $('.file-upload-content').show();
             $('#reload').hide();
             //setTimeout(() => { $('#loading').hide();}, 2000);
             init().then(function () {
-                alert('2');
                 //console.log("hello");
                 //predict();
                 //$('#loading').hide();
@@ -129,8 +127,6 @@
 
         maxPredictions = 0
         async function init() {
-
-            alert('3');
 
             var today = new Date();
             var year = today.getFullYear(); // 년도
