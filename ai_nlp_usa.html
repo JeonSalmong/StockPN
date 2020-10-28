@@ -142,7 +142,7 @@
                 url: URL,
                 async: true,
                 cache: false,
-                success:function(data) {
+                success: function(data) {
                     for (key in data) {
                         //console.log(data[key].length);
                         maxPredictions = data[key].length;
@@ -226,7 +226,10 @@
                         $('#reload').show();
                     }
                     console.log(labelContainer.childElementCount)
-                }
+                },
+                error: function(e) {
+					alert(e);
+				}
             });
         };
 
