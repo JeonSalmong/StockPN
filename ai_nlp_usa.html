@@ -143,7 +143,9 @@
 
             var data = $.ajax({
                 dataType: "json",
-                url: URL
+                url: URL,
+                async: true,
+                cache: false
             }).done(function (data) {
                 //alert(JSON.stringify(data));
                 for (key in data) {
