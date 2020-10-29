@@ -150,7 +150,6 @@
                     }
                     jsonData = data[key];
 
-                    console.log(jsonData);
                     labelContainer = document.getElementById("label-container");
                     
                     while ( labelContainer.hasChildNodes() ) { labelContainer.removeChild( labelContainer.firstChild ); }
@@ -226,7 +225,6 @@
                         labelContainer.childNodes[i].innerHTML = label + bar;
                         $('#reload').show();
                     }
-                    console.log(labelContainer.childElementCount)
                 },
                 error: function(jqXHR, exception) {
                     if (jqXHR.status === 0) {
