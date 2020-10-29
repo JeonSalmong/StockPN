@@ -85,7 +85,7 @@
             <div id="blank">
                 <p>
                 </p>
-                <p> 
+                <p> ※ 종목명(Tiker) 감성지수(기사 언급 수)
                 </p>
             </div>
             <div id="reload" class="pt-3 image-title-wrap">
@@ -115,6 +115,7 @@
             $('#loading').show();
             $('.file-upload-content').show();
             $('#reload').hide();
+            $('#blank').show();
             //setTimeout(() => { $('#loading').hide();}, 2000);
             getData();
         };
@@ -230,6 +231,7 @@
                         var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
                         var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "% ("+cnt+")</span></div></div>"
                         labelContainer.childNodes[i].innerHTML = label + bar;
+                        $('#blank').show();
                         $('#reload').show();
                     }
                 },
