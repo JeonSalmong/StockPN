@@ -228,8 +228,12 @@
                     }
                     console.log(labelContainer.childElementCount)
                 },
-                error: function(e) {
-					alert(e);
+                error: function(exception) {
+                    var output = ''; 
+                    for (var i in exception) { 
+                        output += i + ' : ' + exception[i] + '\n'; 
+                    } 
+                    alert(output);
 				}
             });
         };
