@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Jua&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/detail_kor.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
+    <script>
+        function bodyOnload() {
+            $('#loading').show();
+            getData();
+        };
+
+        let contentContainer;
+        let jsonData;
+
+        function getData() {
+            var st_key = '202011051000000660';
+            URL = "https://interface-dot-daelim-itb-deva.appspot.com/stockpn?pn=DEKO&key="+st_key;
+
+            $.ajax({
+                type:"GET",
+                dataType: "json",
+                url: URL,
+                async: true,
+                cache: false,
+                success: function(data) {
+                    alert(data);
+                    $('#loading').hide()
+                }
+            });
+        };
+
+    </script>
+    <title>Document</title>
+</head>
+<body onload="bodyOnload()">
+    <div class="detail">
+        <div id="loading" class="animated bounce"></div>
+        <div id="content">
+            <div id="content_container"></div>
+        </div>
+    </div>
+</body>
+</html>
