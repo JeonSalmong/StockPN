@@ -155,6 +155,7 @@
                         //console.log(data[key].length);
                         maxPredictions = data[key].length;
                     }
+                    
                     jsonData = data[key];
 
                     labelContainer = document.getElementById("label-container");
@@ -169,8 +170,8 @@
                         labelContainer.appendChild(element);
                     }
 
-                    tmp_className = "dog"
-                    resultTitle = year + "년" + month + "월" + date + "일 " + hours + "시" + minutes + "분"
+                    tmp_className = "dog";
+                    resultTitle = year + "년" + month + "월" + date + "일 " + hours + "시" + minutes + "분";
                     var clPN;
 
                     if (document.getElementById("gender").checked) {
@@ -179,61 +180,77 @@
                         clPN = "긍정";
                     }
 
-                    resultExplain = "AI가 기사를 보고 '" + clPN + "'으로 판단 한 종목 중에 감성지수 상위 " + maxPredictions + "개의 종목 입니다."
-
-                    resultCeleb = " "
+                    resultExplain = "AI가 기사를 보고 '" + clPN + "'으로 판단 한 종목 중에 감성지수 상위 " + maxPredictions + "개의 종목 입니다.";
+                    if (maxPredictions > 0) {
+                        resultCeleb = "(종목명을 선택하면 상세 정보를 볼 수 있습니다.)";
+                    } else {
+                        resultCeleb = " ";
+                    }
+                    
                     var title = "<div class='" + tmp_className + "-animal-title'>" + resultTitle + "</div>"
                     var explain = "<div class='animal-explain pt-2'>" + resultExplain + "</div>"
                     var celeb = "<div class='" + tmp_className + "-animal-celeb pt-2 pb-2'>" + resultCeleb + "</div>"
                     $('.result-message').html(title + explain + celeb);
                     $('.result-message').show();
 
-
-                    //console.log(jsonData[0].name);
-
-
                     var barWidth;
                     var labelTitle;
                     var cnt;
                     var st_key;
-                    for (let i = 0; i < maxPredictions; i++) {
 
-                        labelTitle = jsonData[i].name.substring(0, 5) + "(" + jsonData[i].code + ")"
-                        barWidth = jsonData[i].ratio
-                        cnt = jsonData[i].cnt
-                        st_key = jsonData[i].key_code
+                    if (maxPredictions > 0) {
 
-                        switch (i) {
-                            case 0:
-                            case 5:
-                                tmp_className = "dog"
-                                break;
-                            case 1:
-                            case 6:
-                                tmp_className = "cat"
-                                break;
-                            case 2:
-                            case 7:
-                                tmp_className = "rabbit"
-                                break;
-                            case 3:
-                            case 8:
-                                tmp_className = "dinosaur"
-                                break;
-                            case 4:
-                            case 9:
-                                tmp_className = "bear"
-                                break;
-                            default:
-                                tmp_className = "알수없음"
-                                labelTitle = "알수없음"
-                                barWidth = 0
+                        for (let i = 0; i < maxPredictions; i++) {
+
+                            labelTitle = jsonData[i].name.substring(0, 5) + "(" + jsonData[i].code + ")"
+                            barWidth = jsonData[i].ratio
+                            cnt = jsonData[i].cnt
+                            st_key = jsonData[i].key_code
+
+                            switch (i) {
+                                case 0:
+                                case 5:
+                                    tmp_className = "dog"
+                                    break;
+                                case 1:
+                                case 6:
+                                    tmp_className = "cat"
+                                    break;
+                                case 2:
+                                case 7:
+                                    tmp_className = "rabbit"
+                                    break;
+                                case 3:
+                                case 8:
+                                    tmp_className = "dinosaur"
+                                    break;
+                                case 4:
+                                case 9:
+                                    tmp_className = "bear"
+                                    break;
+                                default:
+                                    tmp_className = "dog"
+                                    labelTitle = "정보없음"
+                                    barWidth = 0
+                            }
+
+                            $('#loading').hide()
+                            var label = "<div class='animal-label d-flex align-items-center'><a href='detail_kor.html?st_key="+st_key+"'>" + labelTitle + "</a></div>"
+                            var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%("+cnt+")</span></div></div>"
+                            labelContainer.childNodes[i].innerHTML = label + bar;
+                            $('#blank').show();
+                            $('#reload').show();
                         }
+                    } else {
+                        maxPredictions = 1;
+                        tmp_className = "dog"
+                        labelTitle = "정보없음";
+                        barWidth = 0;
 
                         $('#loading').hide()
-                        var label = "<div class='animal-label d-flex align-items-center'><a href='detail_kor.html?st_key="+st_key+"'>" + labelTitle + "</a></div>"
-                        var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%("+cnt+")</span></div></div>"
-                        labelContainer.childNodes[i].innerHTML = label + bar;
+                        var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+                        var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'></div></div>"
+                        labelContainer.childNodes[0].innerHTML = label + bar;
                         $('#blank').show();
                         $('#reload').show();
                     }

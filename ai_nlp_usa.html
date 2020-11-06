@@ -187,53 +187,68 @@
                     $('.result-message').html(title + explain + celeb);
                     $('.result-message').show();
 
-
-                    //console.log(jsonData[0].name);
-
-
                     var barWidth;
                     var labelTitle;
                     var cnt;
-                    for (let i = 0; i < maxPredictions; i++) {
+                    var st_key;
 
-                        labelTitle = jsonData[i].name.substring(0, 8) + "(" + jsonData[i].code + ")"
-                        barWidth = jsonData[i].ratio
-                        cnt = jsonData[i].cnt
+                    if (maxPredictions > 0) {
 
-                        switch (i) {
-                            case 0:
-                            case 5:
-                                tmp_className = "dog"
-                                break;
-                            case 1:
-                            case 6:
-                                tmp_className = "cat"
-                                break;
-                            case 2:
-                            case 7:
-                                tmp_className = "rabbit"
-                                break;
-                            case 3:
-                            case 8:
-                                tmp_className = "dinosaur"
-                                break;
-                            case 4:
-                            case 9:
-                                tmp_className = "bear"
-                                break;
-                            default:
-                                tmp_className = "알수없음"
-                                labelTitle = "알수없음"
-                                barWidth = 0
+                        for (let i = 0; i < maxPredictions; i++) {
+
+                            labelTitle = jsonData[i].name.substring(0, 8) + "(" + jsonData[i].code + ")"
+                            barWidth = jsonData[i].ratio
+                            cnt = jsonData[i].cnt
+                            st_key = jsonData[i].key_code
+
+                            switch (i) {
+                                case 0:
+                                case 5:
+                                    tmp_className = "dog"
+                                    break;
+                                case 1:
+                                case 6:
+                                    tmp_className = "cat"
+                                    break;
+                                case 2:
+                                case 7:
+                                    tmp_className = "rabbit"
+                                    break;
+                                case 3:
+                                case 8:
+                                    tmp_className = "dinosaur"
+                                    break;
+                                case 4:
+                                case 9:
+                                    tmp_className = "bear"
+                                    break;
+                                default:
+                                    tmp_className = "dog"
+                                    labelTitle = "정보없음"
+                                    barWidth = 0
+                            }
+
+                            $('#loading').hide()
+                            var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+                            var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%("+cnt+")</span></div></div>"
+                            labelContainer.childNodes[i].innerHTML = label + bar;
+                            $('#blank').show();
+                            $('#reload').show();
                         }
+                    } else {
+                        maxPredictions = 1;
+                        tmp_className = "dog"
+                        labelTitle = "정보없음";
+                        barWidth = 0;
 
                         $('#loading').hide()
                         var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
-                        var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%("+cnt+")</span></div></div>"
-                        labelContainer.childNodes[i].innerHTML = label + bar;
+                        var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'></div></div>"
+                        labelContainer.childNodes[0].innerHTML = label + bar;
                         $('#blank').show();
                         $('#reload').show();
                     }
+
                 },
                 error: function(jqXHR, exception) {
                     if (jqXHR.status === 0) {
