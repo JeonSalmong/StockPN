@@ -29,11 +29,13 @@
 <body>
     <nav class="p-3 container navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="https://aistocknp.netlify.app/">주식갬성</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                    </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="ai_nlp_usa.html">미국갬성</a>
                 </li>
             </ul>
         </div>
@@ -108,6 +110,8 @@
             <p>&copy; Congkey's 2020. All Rights Reserved. </p>
         </div>
     </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script>
 
         function readURL() {
@@ -235,7 +239,7 @@
                             }
 
                             $('#loading').hide()
-                            var label = "<div class='animal-label d-flex align-items-center'><a href='detail_kor.html?st_key="+st_key+"'>" + labelTitle + "</a></div>"
+                            var label = "<div id='link_text' class='animal-label d-flex align-items-center'><a href='detail_kor.html?st_key="+st_key+"'>" + labelTitle + "</a></div>"
                             var bar = "<div class='bar-container position-relative container'><div class='" + tmp_className + "-box'></div><div class='d-flex justify-content-center align-items-center " + tmp_className + "-bar' style='width: " + barWidth + "%'><span class='d-block percent-text'>" + barWidth + "%("+cnt+")</span></div></div>"
                             labelContainer.childNodes[i].innerHTML = label + bar;
                             $('#blank').show();

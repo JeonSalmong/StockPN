@@ -7,12 +7,16 @@ body {
 
 .navbar-light .navbar-brand {
   line-height: 1.68;
-  text-align: left;
+  text-align: right;
   color: #35465d; 
 }
 
 .navbar-light .navbar-toggler {
     border-color: #ffffff;
+}
+
+.navbar-nav{
+  float: right;
 }
 
 .section {
@@ -229,10 +233,6 @@ input:checked + label > .knob > i:before {
   transition: all .2s ease;
 }
 
-#loading {
-  display: none;
-}
-
 .bar-container {
   height: 2.7rem;
 }
@@ -430,4 +430,13 @@ input:checked + label > .knob > i:before {
 .ad-banner {
   width: 320px;
   margin: 0 auto;
+}
+
+#link_text a{
+  color: #35465d;
+}
+
+#link_text a:hover {
+  text-decoration: none;
+  color: #35465d;
 }
