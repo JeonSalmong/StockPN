@@ -1,5 +1,6 @@
 body{
     padding:20px;
+    font-size: 13px;
     font-family: 'Jua', sans-serif;
 }
 
@@ -70,7 +71,7 @@ button{
 	color:#fff;
     background: #004fff;
     font-family: 'Jua', sans-serif;
-	font-size: 14px;
+	font-size: 13px;
 	border:none;
 	border-radius: 20px;
 	box-shadow: 0 4px 14px rgba(0,79,255,0.3);
